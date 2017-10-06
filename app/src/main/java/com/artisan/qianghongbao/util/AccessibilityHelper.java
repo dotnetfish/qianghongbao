@@ -1,4 +1,4 @@
-package com.codeboy.qianghongbao.util;
+package com.artisan.qianghongbao.util;
 
 import android.accessibilityservice.AccessibilityService;
 import android.os.Build;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * <p>Created 16/2/4 上午9:49.</p>
  * <p><a href="mailto:730395591@qq.com">Email:730395591@qq.com</a></p>
- * <p><a href="http://www.happycodeboy.com">LeonLee Blog</a></p>
+ * <p><a href="http://www.happyartisan.com">LeonLee Blog</a></p>
  *
  * @author LeonLee
  */

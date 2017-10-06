@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codeboy.qianghongbao" >
+    package="com.artisan.qianghongbao" >
 
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -20,10 +20,10 @@
     <uses-permission android:name="android.permission.RESTART_PACKAGES" />
 
     <permission
-        android:name="com.codeboy.qianghongbao.permission.MIPUSH_RECEIVE"
+        android:name="com.artisan.qianghongbao.permission.MIPUSH_RECEIVE"
         android:protectionLevel="signatureOrSystem" />
 
-    <uses-permission android:name="com.codeboy.qianghongbao.permission.MIPUSH_RECEIVE" />
+    <uses-permission android:name="com.artisan.qianghongbao.permission.MIPUSH_RECEIVE" />
 
     <application
         android:name=".QHBApplication"

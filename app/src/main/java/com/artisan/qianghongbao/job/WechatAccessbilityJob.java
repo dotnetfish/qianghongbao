@@ -1,4 +1,4 @@
-package com.codeboy.qianghongbao.job;
+package com.artisan.qianghongbao.job;
 
 import android.annotation.TargetApi;
 import android.app.Notification;
@@ -17,20 +17,20 @@ import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 
-import com.codeboy.qianghongbao.BuildConfig;
-import com.codeboy.qianghongbao.Config;
-import com.codeboy.qianghongbao.IStatusBarNotification;
-import com.codeboy.qianghongbao.QHBApplication;
-import com.codeboy.qianghongbao.QiangHongBaoService;
-import com.codeboy.qianghongbao.util.AccessibilityHelper;
-import com.codeboy.qianghongbao.util.NotifyHelper;
+import com.artisan.qianghongbao.BuildConfig;
+import com.artisan.qianghongbao.Config;
+import com.artisan.qianghongbao.IStatusBarNotification;
+import com.artisan.qianghongbao.QHBApplication;
+import com.artisan.qianghongbao.QiangHongBaoService;
+import com.artisan.qianghongbao.util.AccessibilityHelper;
+import com.artisan.qianghongbao.util.NotifyHelper;
 
 import java.util.List;
 
 /**
  * <p>Created 16/1/16 上午12:40.</p>
- * <p><a href="mailto:codeboy2013@gmail.com">Email:codeboy2013@gmail.com</a></p>
- * <p><a href="http://www.happycodeboy.com">LeonLee Blog</a></p>
+ * <p><a href="mailto:artisan2013@gmail.com">Email:artisan2013@gmail.com</a></p>
+ * <p><a href="http://www.happyartisan.com">LeonLee Blog</a></p>
  *
  * @author LeonLee
  */
@@ -45,6 +45,7 @@ public class WechatAccessbilityJob extends BaseAccessbilityJob {
     private static final String HONGBAO_TEXT_KEY = "[微信红包]";
 
     private static final String BUTTON_CLASS_NAME = "android.widget.Button";
+    private static  final  String OPEN_EVENT_CLASS="com.tencent.mm.plugin.luckymoney.ui.En_fba4b94f";
 
 
     /** 不能再使用文字匹配的最小版本号 */
@@ -225,7 +226,10 @@ public class WechatAccessbilityJob extends BaseAccessbilityJob {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void openHongBao(AccessibilityEvent event) {
-        if("com.tencent.mm.plugin.luckymoney.ui.LuckyMoneyReceiveUI".equals(event.getClassName())) {
+        Log.e(TAG,"event received:"+event.getClassName());
+        if(OPEN_EVENT_CLASS.equals(event.getClassName())) {
+            Log.e(TAG,"try to  open hb:"+event.getClassName());
+
             mCurrentWindow = WINDOW_LUCKYMONEY_RECEIVEUI;
             //点中了红包，下一步就是去拆红包
             handleLuckyMoneyReceive();
@@ -261,19 +265,25 @@ public class WechatAccessbilityJob extends BaseAccessbilityJob {
         int wechatVersion = getWechatVersion();
         if(event == Config.WX_AFTER_OPEN_HONGBAO) { //拆红包
             if (wechatVersion < USE_ID_MIN_VERSION) {
+                Log.e(TAG, "buttonid:min_version");
                 targetNode = AccessibilityHelper.findNodeInfosByText(nodeInfo, "拆红包");
             } else {
-                String buttonId = "com.tencent.mm:id/b43";
+                String buttonId = "com.tencent.mm:id/brt";
 
                 if(wechatVersion == 700) {
                     buttonId = "com.tencent.mm:id/b2c";
                 }
+               // buttonId="";
 
                 if(buttonId != null) {
+                    Log.e(TAG, "buttonid:findbyid"+buttonId);
                     targetNode = AccessibilityHelper.findNodeInfosById(nodeInfo, buttonId);
+                    Log.e(TAG, "buttonid:findbyid:"+buttonId+"result:"+String.valueOf(targetNode==null));
                 }
 
                 if(targetNode == null) {
+                    Log.e(TAG, "buttonid:findbyid empty find by text"+buttonId);
+
                     //分别对应固定金额的红包 拼手气红包
                     AccessibilityNodeInfo textNode = AccessibilityHelper.findNodeInfosByTexts(nodeInfo, "发了一个红包", "给你发了一个红包", "发了一个红包，金额随机");
 

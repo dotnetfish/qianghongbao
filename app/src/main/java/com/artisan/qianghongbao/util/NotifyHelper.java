@@ -1,4 +1,4 @@
-package com.codeboy.qianghongbao.util;
+package com.artisan.qianghongbao.util;
 
 import android.app.KeyguardManager;
 import android.app.PendingIntent;
@@ -9,14 +9,14 @@ import android.os.Build;
 import android.os.PowerManager;
 import android.os.Vibrator;
 
-import com.codeboy.qianghongbao.Config;
+import com.artisan.qianghongbao.Config;
 
 import java.util.Calendar;
 
 /**
  * <p>Created 16/2/5 下午9:48.</p>
- * <p><a href="mailto:codeboy2013@gmail.com">Email:codeboy2013@gmail.com</a></p>
- * <p><a href="http://www.happycodeboy.com">LeonLee Blog</a></p>
+ * <p><a href="mailto:artisan2013@gmail.com">Email:artisan2013@gmail.com</a></p>
+ * <p><a href="http://www.happyartisan.com">LeonLee Blog</a></p>
  *
  * @author LeonLee
  */

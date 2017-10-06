@@ -1,4 +1,4 @@
-package com.codeboy.qianghongbao;
+package com.artisan.qianghongbao;
 
 import android.annotation.TargetApi;
 import android.app.Dialog;
@@ -26,14 +26,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.codeboy.qianghongbao.job.WechatAccessbilityJob;
-import com.codeboy.qianghongbao.util.BitmapUtils;
+import com.artisan.qianghongbao.job.WechatAccessbilityJob;
+import com.artisan.qianghongbao.util.BitmapUtils;
 
 import java.io.File;
 
 /**
  * <p>Created by LeonLee on 15/2/17 下午10:11.</p>
- * <p><a href="mailto:codeboy2013@163.com">Email:codeboy2013@163.com</a></p>
+ * <p><a href="mailto:artisan2013@163.com">Email:artisan2013@163.com</a></p>
  *
  * 抢红包主界面
  */
@@ -241,7 +241,7 @@ public class MainActivity extends BaseSettingsActivity {
 
             @Override
             public boolean onLongClick(View v) {
-                File output = new File(android.os.Environment.getExternalStorageDirectory(), "codeboy_wechatpay_qr.jpg");
+                File output = new File(android.os.Environment.getExternalStorageDirectory(), "artisan_wechatpay_qr.jpg");
                 if(!output.exists()) {
                     Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.wechatpay_qr);
                     BitmapUtils.saveBitmap(MainActivity.this, output, bitmap);

@@ -1,4 +1,4 @@
-package com.codeboy.qianghongbao;
+package com.artisan.qianghongbao;
 
 import android.app.Activity;
 import android.app.Application;
@@ -7,7 +7,7 @@ import android.content.Context;
 /**
  * <p>Created 16/1/16 上午1:15.</p>
  * <p><a href="mailto:730395591@qq.com">Email:730395591@qq.com</a></p>
- * <p><a href="http://www.happycodeboy.com">LeonLee Blog</a></p>
+ * <p><a href="http://www.happyartisan.com">LeonLee Blog</a></p>
  *
  * @author LeonLee
  */

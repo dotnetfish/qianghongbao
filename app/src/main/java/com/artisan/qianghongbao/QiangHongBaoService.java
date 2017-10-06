@@ -1,4 +1,4 @@
-package com.codeboy.qianghongbao;
+package com.artisan.qianghongbao;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
@@ -11,8 +11,8 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Toast;
 
-import com.codeboy.qianghongbao.job.AccessbilityJob;
-import com.codeboy.qianghongbao.job.WechatAccessbilityJob;
+import com.artisan.qianghongbao.job.AccessbilityJob;
+import com.artisan.qianghongbao.job.WechatAccessbilityJob;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * <p>Created by LeonLee on 15/2/17 下午10:25.</p>
- * <p><a href="mailto:codeboy2013@163.com">Email:codeboy2013@163.com</a></p>
+ * <p><a href="mailto:artisan2013@163.com">Email:artisan2013@163.com</a></p>
  *
  * 抢红包外挂服务
  */
@@ -86,7 +86,7 @@ public class QiangHongBaoService extends AccessibilityService {
     @Override
     public void onInterrupt() {
         Log.d(TAG, "qianghongbao service interrupt");
-        Toast.makeText(this, "中断抢红包服务", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "中断artisan服务", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -96,7 +96,7 @@ public class QiangHongBaoService extends AccessibilityService {
         //发送广播，已经连接上了
         Intent intent = new Intent(Config.ACTION_QIANGHONGBAO_SERVICE_CONNECT);
         sendBroadcast(intent);
-        Toast.makeText(this, "已连接抢红包服务", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "已连接artisan服务", Toast.LENGTH_SHORT).show();
     }
 
     @Override
